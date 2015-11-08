@@ -35,6 +35,8 @@ formPessoa = renderDivs $ Pessoa <$>
              areq doubleField "Salario" Nothing <*>
              areq (selectField dptos) "Depto" Nothing
 
+             
+
 dptos = do
        entidades <- runDB $ selectList [] [Asc DepartamentoNome] 
        optionsPairs $ fmap (\ent -> (departamentoSigla $ entityVal ent, entityKey ent)) entidades
@@ -47,6 +49,11 @@ widgetForm x enctype widget y = [whamlet|
             <form method=post action=@{x} enctype=#{enctype}>
                 ^{widget}
                 <input type="submit" value="Cadastrar">
+
+           <form method=get action=@{UsuarioR}>
+                <input type="submit" value="Usuario">
+           <form method=get action=@{DeptoR}>
+                <input type="submit" value="Departamento">
 |]
 
 getCadastroR :: Handler Html
