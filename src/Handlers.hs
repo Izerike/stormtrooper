@@ -13,6 +13,12 @@ import Database.Persist.Postgresql
 
 mkYesodDispatch "Sitio" pRoutes
 
+formUsuario :: Form Usuario
+formUsuario = renderDivs $ Usuario <$>
+            areq textField "Login" Nothing <*>
+            areq textField "Senha" Nothing 
+
+                       
 formDepto :: Form Departamento
 formDepto = renderDivs $ Departamento <$>
             areq textField "Nome" Nothing <*>
@@ -33,6 +39,7 @@ dptos = do
        entidades <- runDB $ selectList [] [Asc DepartamentoNome] 
        optionsPairs $ fmap (\ent -> (departamentoSigla $ entityVal ent, entityKey ent)) entidades
 
+
 widgetForm :: Route Sitio -> Enctype -> Widget -> Text -> Widget
 widgetForm x enctype widget y = [whamlet|
             <h1>
@@ -46,10 +53,16 @@ getCadastroR :: Handler Html
 getCadastroR = do
              (widget, enctype) <- generateFormPost formPessoa
              defaultLayout $ widgetForm CadastroR enctype widget "Pessoas"
+             
+getUsuarioR :: Handler Html
+getUsuarioR = do
+             (widget, enctype) <- generateFormPost formUsuario
+             defaultLayout $ widgetForm UsuarioR enctype widget "Usuario"
 
 getPessoaR :: PessoaId -> Handler Html
 getPessoaR pid = do
              pessoa <- runDB $ get404 pid 
+             depto <- runDB $ get $ (pessoaDeptoid pessoa)
              defaultLayout [whamlet| 
                  <h1> Seja bem-vindx #{pessoaNome pessoa}
                  <p> Salario: #{pessoaSalario pessoa}
@@ -92,8 +105,22 @@ postDeptoR = do
                        |]
                     _ -> redirect DeptoR
 
+postUsuarioR :: Handler Html
+postUsuarioR = do
+                ((result, _), _) <- runFormPost formUsuario
+                case result of
+                    FormSuccess usuario -> do
+                       runDB $ insert usuario 
+                       defaultLayout [whamlet| 
+                           <h1>#{usuarioLogin usuario} Inseridx com sucesso. 
+                       |]
+                    _ -> redirect UsuarioR
 
-connStr = "dbname=dd9en8l5q4hh2a host=ec2-107-21-219-201.compute-1.amazonaws.com user=kpuwtbqndoeyqb password=aCROh525uugAWF1l7kahlNN3E0 port=5432"
+
+
+
+
+connStr = "dbname=d8sgbiolepc73o host=ec2-107-21-224-11.compute-1.amazonaws.com user=hflfsmskgvmnjy password=PwQLqi_w0nqqXKTglhYYHR_JpC port=5432"
 
 main::IO()
 main = runStdoutLoggingT $ withPostgresqlPool connStr 10 $ \pool -> liftIO $ do 

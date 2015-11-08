@@ -23,6 +23,9 @@ Pessoa
    salario Double
    deptoid DepartamentoId
    deriving Show
+Usuario
+   login Text
+   senha Text
 |]
 
 mkYesodData "Sitio" pRoutes
