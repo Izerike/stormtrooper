@@ -69,11 +69,13 @@ getUsuarioR = do
 getPessoaR :: PessoaId -> Handler Html
 getPessoaR pid = do
              pessoa <- runDB $ get404 pid 
+           
              depto <- runDB $ get $ (pessoaDeptoid pessoa)
              defaultLayout [whamlet| 
                  <h1> Seja bem-vindx #{pessoaNome pessoa}
                  <p> Salario: #{pessoaSalario pessoa}
                  <p> Idade: #{pessoaIdade pessoa}
+                  
              |]
 
 getListarR :: Handler Html
