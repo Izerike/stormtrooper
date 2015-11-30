@@ -37,7 +37,7 @@ instance Yesod Sitio where
     isAuthorized LoginR _ = return Authorized
     isAuthorized AdminR _ = isAdmin
     isAuthorized _ _ = isUser
-
+--comentario
 isAdmin = do
     mu <- lookupSession "_ID"
     return $ case mu of

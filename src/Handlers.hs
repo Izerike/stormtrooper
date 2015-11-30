@@ -23,9 +23,16 @@ widgetForm x enctype widget y val = do
 
 formUsu :: Form Usuario
 formUsu = renderDivs $ Usuario <$>
-    areq textField "Username" Nothing <*>
-    areq textField "Pass" Nothing
-
+    areq textField FieldSettings{fsLabel = "",
+                                 fsId=Just "hident22",
+                                 fsTooltip= Nothing,
+                                 fsName= Nothing,
+                                 fsAttrs=[("placeholder","Usuario")]} Nothing <*>
+    areq passwordField FieldSettings{fsLabel = "",
+                                 fsId=Just "hident23",
+                                 fsTooltip= Nothing,
+                                 fsName= Nothing,
+                                 fsAttrs=[("placeholder","Senha")]} Nothing
 getUsuarioR :: Handler Html
 getUsuarioR = do
     (wid,enc) <- generateFormPost formUsu
@@ -87,7 +94,7 @@ getByeR = do
 getAdminR :: Handler Html
 getAdminR = defaultLayout [whamlet| <h1> Bem-vindo ADMIN!! |]
 
-connStr = "dbname=dd9en8l5q4hh2a host=ec2-107-21-219-201.compute-1.amazonaws.com user=kpuwtbqndoeyqb password=aCROh525uugAWF1l7kahlNN3E0 port=5432"
+connStr = "dbname=d4nnmskudjtloa host=ec2-107-21-223-110.compute-1.amazonaws.com user=npraiqxlmbrgar password= Y-Rx12gmawtZuCsFLfqOYs0UNr port=5432"
 
 main::IO()
 main = runStdoutLoggingT $ withPostgresqlPool connStr 10 $ \pool -> liftIO $ do 

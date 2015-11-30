@@ -1,7 +1,10 @@
-<h1>
-    #{y}
-    $maybe mm <- msg
-        #{mm}
-    <form method=post action=@{x} enctype=#{enctype}>
-        ^{widget}
-        <input type="submit" value=#{val}>
+<section>   
+    <span>
+    <p>
+       
+            #{y}
+            $maybe mm <- msg
+                #{mm}
+            <form method=post action=@{x} enctype=#{enctype}>
+                ^{widget}
+                <input type="submit" id="bt" value=#{val}>
