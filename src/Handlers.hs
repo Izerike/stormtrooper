@@ -11,6 +11,7 @@ import Control.Applicative
 import Data.Text
 import Text.Lucius
 
+
 import Database.Persist.Postgresql
 
 mkYesodDispatch "Sitio" pRoutes
@@ -20,6 +21,18 @@ widgetForm x enctype widget y val = do
      msg <- getMessage
      $(whamletFile "form.hamlet")
      toWidget $(luciusFile "teste.lucius")
+widgetTemplate ::  Widget
+widgetTemplate = do
+     $(whamletFile "home.hamlet")
+     toWidget $(luciusFile "home.lucius")
+widgetEquipe ::  Widget
+widgetEquipe = do
+     $(whamletFile "equipe.hamlet")
+     toWidget $(luciusFile "home.lucius")
+--widgetServico ::  Widget
+--widgetServico = do
+   --  $(whamletFile "list.hamlet")
+   --  toWidget $(luciusFile "home.lucius")
 
 formUsu :: Form Usuario
 formUsu = renderDivs $ Usuario <$>
@@ -81,11 +94,21 @@ postUsuarioR = do
             redirect UsuarioR
         _ -> redirect UsuarioR
 
+
+getHomeR :: Handler Html
+getHomeR = defaultLayout $ widgetTemplate 
+
+getEquipeR :: Handler Html
+getEquipeR = defaultLayout $ widgetEquipe
+
+
 getListUserR :: Handler Html
 getListUserR = do
     listaU <- runDB $ selectList [] [Asc UsuarioNome]
-    defaultLayout $(whamletFile "list.hamlet")
-
+    defaultLayout $ do 
+        toWidget  $(luciusFile "home.lucius")
+        $(whamletFile "list.hamlet") 
+        
 getByeR :: Handler Html
 getByeR = do
     deleteSession "_ID"

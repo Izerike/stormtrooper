@@ -1,0 +1,29 @@
+<div id="header-wrapper">
+    <div id="header" class="container">
+        <div id="logo">
+            <span class="icon">
+            <h1><a href="#">Paragon
+            <span>Analise Facilitada
+        <div id="triangle-up">
+<div id="menu-wrapper">
+            <div id="menu">
+                     <ul>
+                            <li><a href=@{HomeR} accesskey="1" title="">Inicio
+                            <li><a href=@{ListUserR} accesskey="2" title="">Serviços
+                            <li class="current_page_item"><a href=@{EquipeR} accesskey="3" title="">A Equipe
+                            <li><a href="#" accesskey="5" title="">Acesso
+<div id="wrapper">
+    <div id="featured-wrapper">
+        <div class="extra2 container">
+            <div class="ebox1">
+                <div class="hexagon"><span class="icon"><img width=90px; heigth=90px; src="http://attachee-de-presse-paris.com/wp-content/uploads/2015/04/community-icon.png">
+                <div class="title">
+                    <h2>Equipe
+                    <span class="byline">Membros do Grupo
+                   <p>
+                   <p><img width=90px; heigth=90px; src=@{StaticR luis_PNG}>
+                   <p>Luis Henrique Moreira Barbosa
+                   <p><img width=90px; heigth=90px; src=@{StaticR nicolas_PNG}>
+                   <p>Nícolas Ferrari
+                   <p><img width=90px; heigth=90px; src=@{StaticR rodrigo_PNG}> 
+                   <p>Rodrigo Ribeiro

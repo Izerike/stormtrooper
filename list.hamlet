@@ -1,3 +1,24 @@
-<h1> Pessoas cadastradas:
-    $forall Entity pid user <- listaU
-        <p> #{usuarioNome user} <br>
+<div id="header-wrapper">
+    <div id="header" class="container">
+        <div id="logo">
+            <span class="icon">
+            <h1><a href="#">Paragon
+            <span>Analise Facilitada
+        <div id="triangle-up">
+<div id="menu-wrapper">
+            <div id="menu">
+                <ul>
+                    <li><a href=@{HomeR} accesskey="1" title="">Inicio
+                    <li  class="current_page_item"><a href=@{ListUserR} accesskey="2" title="">Serviços
+                    <li><a href=@{EquipeR} accesskey="3" title="">A Equipe
+                    <li><a href="#" accesskey="5" title="">Acesso
+<div id="wrapper">
+    <div id="featured-wrapper">
+        <div class="extra2 container">
+            <div class="ebox1">
+                <div class="hexagon"><span class="icon"><img width=90px; heigth=90px; src="http://attachee-de-presse-paris.com/wp-content/uploads/2015/04/community-icon.png">
+                <div class="title">
+                    <h2>Serviços
+                    <span class="byline">Lista Empresas
+                    $forall Entity pid user <- listaU
+                        <p> #{usuarioNome user} <br>

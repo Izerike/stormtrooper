@@ -34,6 +34,7 @@ instance YesodPersist Sitio where
 
 instance Yesod Sitio where
     authRoute _ = Just $ LoginR
+    isAuthorized UsuarioR _ = return Authorized
     isAuthorized LoginR _ = return Authorized
     isAuthorized AdminR _ = isAdmin
     isAuthorized _ _ = isUser
