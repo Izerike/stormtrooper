@@ -1,3 +1,6 @@
+<header>
+        <link rel="icon" href=@{ StaticR fav_PNG}>
+<body>
 <div id="header-wrapper">
     <div id="header" class="container">
         <div id="logo">
@@ -8,15 +11,19 @@
 <div id="menu-wrapper">
     <div id="menu">
         <ul>
-            <li class="current_page_item"><a href="#" accesskey="1" title="">Inicio
-            <li><a href=@{ListUserR} accesskey="2" title="">Serviços
-            <li><a href=@{EquipeR} accesskey="3" title="">A Equipe
-            <li><a href="#" accesskey="5" title="">Acesso
+            <li class="current_page_item">
+                <a href=@{HomeR} title="">Inicio
+            <li>
+                <a href=@{ListUserR} title="">Serviços
+            <li>
+                <a href=@{EquipeR} title="">A Equipe
+            <li>
+                <a href=@{AdminR}  title="">Acesso
 <div id="wrapper">
     <div id="featured-wrapper">
         <div class="extra2 container">
             <div class="ebox1">
-                <div class="hexagon"><span class="icon"><img width=90px; heigth=90px; src="http://www.clker.com/cliparts/D/a/n/e/X/i/opaque-background-tv-icon-md.png">
+                <div class="hexagon"><span class="icon"><img width=90px; heigth=90px;  src=@{StaticR tele_PNG}>
                 <div class="title">
                     <h2>Multimidia
                     <span class="byline">Pacotes de internet Telefonia e TV

@@ -7,6 +7,11 @@ import Import
 import Yesod
 import Yesod.Static
 import Data.Text
+import Data.Text (Text)
+import Data.Time
+import qualified Data.Text as T
+import Control.Applicative
+import Yesod.Form.Jquery
 import Database.Persist.Postgresql
     ( ConnectionPool, SqlBackend, runSqlPool, runMigration )
 
@@ -20,6 +25,24 @@ Usuario
    nome Text
    pass Text
    deriving Show
+Fornecedor
+   nome Text
+   deriving Show
+
+Servico
+   nome Text sqltype=varchar(20)
+   descricao Text
+   dia Day Maybe
+
+Combo
+   fornId FornecedorId
+   servId ServicoId
+   valor Double
+   data UTCTime default=now()
+   processado Bool
+   UniqueFornServ fornId servId
+   
+   
 
 |]
 
@@ -36,6 +59,9 @@ instance Yesod Sitio where
     authRoute _ = Just $ LoginR
     isAuthorized UsuarioR _ = return Authorized
     isAuthorized LoginR _ = return Authorized
+    isAuthorized HomeR _ = return Authorized
+    isAuthorized EquipeR _ = return Authorized
+    isAuthorized ListUserR _ = return Authorized
     isAuthorized AdminR _ = isAdmin
     isAuthorized _ _ = isUser
 --comentario

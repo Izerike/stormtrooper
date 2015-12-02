@@ -20,7 +20,7 @@ widgetForm :: Route Sitio -> Enctype -> Widget -> Text -> Text -> Widget
 widgetForm x enctype widget y val = do
      msg <- getMessage
      $(whamletFile "form.hamlet")
-     toWidget $(luciusFile "teste.lucius")
+     toWidget $(luciusFile "home.lucius")
 widgetTemplate ::  Widget
 widgetTemplate = do
      $(whamletFile "home.hamlet")
@@ -29,10 +29,7 @@ widgetEquipe ::  Widget
 widgetEquipe = do
      $(whamletFile "equipe.hamlet")
      toWidget $(luciusFile "home.lucius")
---widgetServico ::  Widget
---widgetServico = do
-   --  $(whamletFile "list.hamlet")
-   --  toWidget $(luciusFile "home.lucius")
+
 
 formUsu :: Form Usuario
 formUsu = renderDivs $ Usuario <$>

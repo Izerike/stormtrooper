@@ -1,10 +1,29 @@
-<section>   
-    <span>
-    <p>
+<div id="header-wrapper">
+    <div id="header" class="container">
+        <div id="logo">
+            <span class="icon">
+            <h1><a href="#">Paragon
+            <span>Analise Facilitada
+        <div id="triangle-up">
+<div id="menu-wrapper">
+            <div id="menu">
+                     <ul>
+                            <li>
+                                <a href=@{HomeR} title="">Inicio
+                            <li>
+                                <a href=@{ListUserR} title="">Serviços
+                            <li class="current_page_item">
+                                <a href=@{EquipeR} title="">A Equipe
+                            <li>
+                                <a href=@{AdminR} title="">Acesso
+
+<div id="featured-wrapper">       
+    <div class="extra2 container">
+                <div class="ebox1">       
        
-            #{y}
-            $maybe mm <- msg
-                #{mm}
-            <form method=post action=@{x} enctype=#{enctype}>
-                ^{widget}
-                <input type="submit" id="bt" value=#{val}>
+                        #{y}
+                        $maybe mm <- msg
+                            #{mm}
+                        <form method=post action=@{x} enctype=#{enctype}>
+                            ^{widget}
+                            <input type="submit"  value=#{val}>

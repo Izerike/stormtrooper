@@ -7,11 +7,15 @@
         <div id="triangle-up">
 <div id="menu-wrapper">
             <div id="menu">
-                     <ul>
-                            <li><a href=@{HomeR} accesskey="1" title="">Inicio
-                            <li><a href=@{ListUserR} accesskey="2" title="">Serviços
-                            <li class="current_page_item"><a href=@{EquipeR} accesskey="3" title="">A Equipe
-                            <li><a href="#" accesskey="5" title="">Acesso
+                 <ul>
+                     <li>
+                         <a href=@{HomeR}  title="">Inicio
+                     <li>
+                         <a href=@{ListUserR} title="">Serviços
+                     <li class="current_page_item">
+                         <a href=@{EquipeR}  title="">A Equipe
+                     <li>
+                         <a href=@{AdminR}  title="">Acesso
 <div id="wrapper">
     <div id="featured-wrapper">
         <div class="extra2 container">
@@ -23,7 +27,10 @@
                    <p>
                    <p><img width=90px; heigth=90px; src=@{StaticR luis_PNG}>
                    <p>Luis Henrique Moreira Barbosa
+                        <br>RA: 1310018-4   
                    <p><img width=90px; heigth=90px; src=@{StaticR nicolas_PNG}>
-                   <p>Nícolas Ferrari
+                   <p>Nícolas Gonçalves Ferrari 
+                        <br>RA: 13100xx-x
                    <p><img width=90px; heigth=90px; src=@{StaticR rodrigo_PNG}> 
-                   <p>Rodrigo Ribeiro
+                   <p>Rodrigo Marcelino Ribeiro
+                        <br>RA: 13100xx-x
