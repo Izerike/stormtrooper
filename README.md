@@ -44,11 +44,25 @@ Página onde o usuário escolherá em uma <i>combo box</i> a empresa e o servico
 Lugar onde todas as imagens do site estão armazenadas.
 <br>
 <b>• Sair</b>
-
+Página onde o usuário irá utilizar para dslogar-se de sua conta no site.
+<br>
+#Comecando a usar
+<br>
+Primeiramente, a empresa se cadastra, depois cadastra os serviços que ela 
+oferece e por último os combos com os valores
+<br>
 # Funcionalidade
+<br>
 Com o Paragon, será possível comparar as informações dos combos 
 fornecidos pelas empresas, para o usuário poder escolher dentre
 os melhores, conforme sua necessidade.
-
+<br>
 # Comparacao
-A comparacao se dará através de alguns selects...
+<br>
+A comparacao se dará através de alguns selects ...
+<br>
+#Comecando a usar
+<br>
+Primeiramente, a empresa se cadastra, depois cadastra os serviços que ela 
+oferece e por último os combos com os valores
+<br>
