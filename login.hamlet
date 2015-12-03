@@ -30,3 +30,5 @@
                         <form method=post action=@{x} enctype=#{enctype}>
                             ^{widget}
                             <input type="submit"  value=#{val}>
+                        <p>Não Possui Conta?
+                           <a href=@{UsuarioR}  title="">Criar

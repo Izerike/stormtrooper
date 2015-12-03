@@ -15,6 +15,6 @@ pRoutes = [parseRoutes|
    / HomeR GET
    /equipe EquipeR GET
    /empresa EmpresaR GET POST
-  
+   /serv ServR GET POST
    /combo ComboR GET POST
 |]

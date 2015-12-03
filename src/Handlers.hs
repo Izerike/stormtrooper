@@ -25,6 +25,12 @@ widgetForm x enctype widget y val = do
      msg <- getMessage
      $(whamletFile "form.hamlet")
      toWidget $(luciusFile "home.lucius")
+     
+widgetLogin :: Route Sitio -> Enctype -> Widget -> Text -> Text -> Widget
+widgetLogin x enctype widget y val = do
+     msg <- getMessage
+     $(whamletFile "login.hamlet")
+     toWidget $(luciusFile "home.lucius")
 
 widgetTemplate ::  Widget
 widgetTemplate = do
@@ -61,18 +67,21 @@ forns = do
        entidades <- runDB $ selectList [] [Asc FornecedorNome] 
        optionsPairs $ fmap (\ent -> (fornecedorNome $ entityVal ent, entityKey ent)) entidades
 
---formServ :: Form Servico
---formServ = renderDivs $ Servico <$>
---             areq textField "Nome" Nothing <*>
---             areq textField "Desc" Nothing <*>
---             aopt (jqueryDayField def { jdsChangeYear = True -- give a year dropdown
---                 , jdsYearRange = "1980:2015" -- 1900 till five years ago
---                  }) "Chegada" Nothing
-
+formServ :: Form Servico
+formServ = renderDivs $ Servico <$>
+             areq textField "Nome" Nothing <*>
+             areq textField "Desc" Nothing <*>
+             aopt (jqueryDayField def { jdsChangeYear = True 
+                 , jdsYearRange = "1980:2015" 
+                  }) "Chegada" Nothing <*>
+             areq intField "Valor" Nothing
 formForn :: Form Fornecedor
 formForn = renderDivs $ Fornecedor <$>
              areq textField "Nome" Nothing
-
+getServR :: Handler Html
+getServR = do
+    (wid,enc) <- generateFormPost formServ
+    defaultLayout $ widgetForm ServR enc wid "Cadastro de Serviços" "Cadastrar"
 
 formUsu :: Form Usuario
 formUsu = renderDivs $ Usuario <$>
@@ -96,10 +105,6 @@ getEmpresaR = do
     (wid,enc) <- generateFormPost formForn
     defaultLayout $ widgetForm EmpresaR enc wid "Cadastro de Empresas" "Cadastrar"
 
---getServicoR :: Handler Html
---getServicoR = do
---    (wid,enc) <- generateFormPost formServ
---    defaultLayout $ widgetForm ServicoR enc wid "Cadastro de Serviços" "Cadastrar"
     
 getComboR :: Handler Html
 getComboR = do
@@ -115,13 +120,14 @@ getWelcomeR = do
 getLoginR :: Handler Html
 getLoginR = do
     (wid,enc) <- generateFormPost formUsu
-    defaultLayout $ widgetForm LoginR enc wid "" "Log in"
+    defaultLayout $ widgetLogin LoginR enc wid "" "Log in"
 
 postLoginR :: Handler Html
 postLoginR = do
     ((result,_),_) <- runFormPost formUsu
     case result of
         FormSuccess usr -> do
+            
             usuario <- runDB $ selectFirst [UsuarioNome ==. usuarioNome usr, UsuarioPass ==. usuarioPass usr ] []
             case usuario of
                 Just (Entity uid usr) -> do
@@ -131,6 +137,16 @@ postLoginR = do
                     setMessage $ [shamlet| Invalid user |]
                     redirect LoginR 
         _ -> redirect LoginR
+
+postServR :: Handler Html
+postServR = do
+    ((result,_),_) <- runFormPost formServ
+    case result of
+        FormSuccess usr -> do
+            runDB $ insert usr
+            setMessage $ [shamlet| <p> Servico inserido com sucesso! |]
+            redirect ServR
+        _ -> redirect ServR
 
 postUsuarioR :: Handler Html
 postUsuarioR = do
@@ -152,15 +168,7 @@ postEmpresaR = do
             redirect EmpresaR
         _ -> redirect EmpresaR
         
---postServicoR :: Handler Html
---postServicoR = do
---    ((result,_),_) <- runFormPost formServ
---    case result of
---        FormSuccess usr -> do
---            runDB $ insert servs
---            setMessage $ [shamlet| <p> Servico inserido com sucesso! |]
---            redirect ServicoR
---        _ -> redirect ServicoR
+
         
 postComboR :: Handler Html
 postComboR = do
@@ -188,13 +196,7 @@ getListUserR = do
                       toWidget  $(luciusFile "home.lucius")
                       $(whamletFile "list.hamlet") 
 
---getListUserR :: Handler Html
---getListUserR = do
- --   listaU <- runDB $ selectList [] [Asc UsuarioNome]
---    defaultLayout $ do 
- --       toWidget  $(luciusFile "home.lucius")
---        $(whamletFile "list.hamlet") 
-        
+
 getByeR :: Handler Html
 getByeR = do
     deleteSession "_ID"
