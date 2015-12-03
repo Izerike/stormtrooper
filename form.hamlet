@@ -1,3 +1,6 @@
+<header>
+        <link rel="icon" href=@{ StaticR fav_PNG}>
+<body>
 <div id="header-wrapper">
     <div id="header" class="container">
         <div id="logo">

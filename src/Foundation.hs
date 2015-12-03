@@ -6,12 +6,13 @@ module Foundation where
 import Import
 import Yesod
 import Yesod.Static
-import Data.Text
 import Data.Text (Text)
-import Data.Time
+import Data.Time (UTCTime, getCurrentTime)
 import qualified Data.Text as T
-import Control.Applicative
+import Data.Time
+import Text.Lucius
 import Yesod.Form.Jquery
+import Data.Text
 import Database.Persist.Postgresql
     ( ConnectionPool, SqlBackend, runSqlPool, runMigration )
 
@@ -33,6 +34,7 @@ Servico
    nome Text sqltype=varchar(20)
    descricao Text
    dia Day Maybe
+   estoque Int
 
 Combo
    fornId FornecedorId
@@ -40,9 +42,7 @@ Combo
    valor Double
    data UTCTime default=now()
    processado Bool
-   UniqueFornServ fornId servId
-   
-   
+   UniqueFornServ fornId servId   
 
 |]
 

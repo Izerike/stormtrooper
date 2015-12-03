@@ -1,3 +1,6 @@
+<header>
+        <link rel="icon" href=@{ StaticR fav_PNG}>
+<body>
 <div id="header-wrapper">
     <div id="header" class="container">
         <div id="logo">
@@ -20,7 +23,7 @@
     <div id="featured-wrapper">
         <div class="extra2 container">
             <div class="ebox1">
-                <div class="hexagon"><span class="icon"><img width=90px; heigth=90px; src="http://attachee-de-presse-paris.com/wp-content/uploads/2015/04/community-icon.png">
+                <div class="hexagon"><span class="icon"><img width=90px; heigth=90px; src=@{StaticR equipe_png}>
                 <div class="title">
                     <h2>Equipe
                     <span class="byline">Membros do Grupo

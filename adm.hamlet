@@ -1,0 +1,31 @@
+<header>
+        <link rel="icon" href=@{ StaticR fav_PNG}>
+<body>
+<div id="header-wrapper">
+    <div id="header" class="container">
+        <div id="logo">
+            <span class="icon">
+            <h1><a href="#">Paragon
+            <span>Analise Facilitada
+        <div id="triangle-up">
+<div id="menu-wrapper">
+    <div id="menu">
+        <ul>
+            <li class="current_page_item">
+                <a href=@{EmpresaR} title="">Empresa
+            <li>
+                <a href=@{ListUserR} title="">Serviço
+            <li>
+                <a href=@{ComboR} title="">Combo
+            <li>
+                <a href=@{ByeR}  title="">Sair
+<div id="wrapper">
+    <div id="featured-wrapper">
+        <div class="extra2 container">
+            <div class="ebox1">
+                <div class="hexagon"><span class="icon"><img width=90px; heigth=90px;  src=@{StaticR login_png}>
+                <div class="title">
+                    <h2>Bem vindo
+                    <span class="byline">
+                          
+                

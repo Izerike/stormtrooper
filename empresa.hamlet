@@ -12,21 +12,20 @@
     <div id="menu">
         <ul>
             <li class="current_page_item">
-                <a href=@{HomeR} title="">Inicio
+                <a href=@{HomeR} title="">Empresa
             <li>
-                <a href=@{ListUserR} title="">Serviços
+                <a href=@{ListUserR} title="">Serviço
             <li>
-                <a href=@{EquipeR} title="">A Equipe
+                <a href=@{EquipeR} title="">Combo
             <li>
-                <a href=@{AdminR}  title="">Acesso
+                <a href=@{ByeR}  title="">Sair
 <div id="wrapper">
     <div id="featured-wrapper">
         <div class="extra2 container">
             <div class="ebox1">
                 <div class="hexagon"><span class="icon"><img width=90px; heigth=90px;  src=@{StaticR tele_PNG}>
                 <div class="title">
-                    <h2>Multimidia
-                    <span class="byline">Pacotes de internet Telefonia e TV
-                <p><strong>Compare 
-                           de forma gratuita e simplificada os prinicpais pacotes de serviços de Internet telefonia e TV a cabo disponibiliados pelas principais operadoras nacionais.
-                <a href=@{ListUserR} class="button">Comparar
+                    <h2>Bem vindo
+                    <span class="byline">
+                          
+                
