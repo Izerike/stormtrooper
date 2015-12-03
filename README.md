@@ -46,11 +46,6 @@ Lugar onde todas as imagens do site estão armazenadas.
 <b>• Sair</b>
 Página onde o usuário irá utilizar para dslogar-se de sua conta no site.
 <br>
-#Comecando a usar
-<br>
-Primeiramente, a empresa se cadastra, depois cadastra os serviços que ela 
-oferece e por último os combos com os valores
-<br>
 # Funcionalidade
 <br>
 Com o Paragon, será possível comparar as informações dos combos 
