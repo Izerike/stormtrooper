@@ -11,14 +11,14 @@
 <div id="menu-wrapper">
             <div id="menu">
                      <ul>
-                            <li>
-                                <a href=@{HomeR} title="">Inicio
-                            <li>
-                                <a href=@{ListUserR} title="">Serviços
-                            <li class="current_page_item">
-                                <a href=@{EquipeR} title="">A Equipe
-                            <li>
-                                <a href=@{AdminR} title="">Acesso
+                        <li class="current_page_item">
+                            <a href=@{EmpresaR} title="">Empresa
+                        <li>
+                            <a href=@{ListUserR} title="">Serviço
+                        <li>
+                            <a href=@{ComboR} title="">Combo
+                        <li>
+                            <a href=@{ByeR}  title="">Sair
 
 <div id="featured-wrapper">       
     <div class="extra2 container">

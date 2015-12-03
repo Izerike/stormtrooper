@@ -12,11 +12,11 @@
     <div id="menu">
         <ul>
             <li class="current_page_item">
-                <a href=@{HomeR} title="">Empresa
+                <a href=@{EmpresaR} title="">Empresa
             <li>
                 <a href=@{ListUserR} title="">Serviço
             <li>
-                <a href=@{EquipeR} title="">Combo
+                <a href=@{ComboR} title="">Combo
             <li>
                 <a href=@{ByeR}  title="">Sair
 <div id="wrapper">

@@ -27,5 +27,6 @@
                 <div class="title">
                     <h2>Serviços
                     <span class="byline">Lista Empresas
-                    $forall Entity pid user <- listaU
-                        <p> #{usuarioNome user} <br>
+                  <h1> Lista de Combos
+                      $forall (Entity oq combo, Entity _ np, Entity _ nf) <- combos
+                          <p> Combos: #{fromSqlKey oq}: #{servicoNome np}: #{fornecedorNome nf}

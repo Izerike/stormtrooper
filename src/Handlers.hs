@@ -110,7 +110,6 @@ getComboR = do
 
 getWelcomeR :: Handler Html
 getWelcomeR = do
-  --   usr <- lookupSession "_ID"
      defaultLayout $ widgetAdm 
 
 getLoginR :: Handler Html
@@ -179,21 +178,32 @@ getHomeR = defaultLayout $ widgetTemplate
 getEquipeR :: Handler Html
 getEquipeR = defaultLayout $ widgetEquipe
 
-
 getListUserR :: Handler Html
 getListUserR = do
-    listaU <- runDB $ selectList [] [Asc UsuarioNome]
-    defaultLayout $ do 
-        toWidget  $(luciusFile "home.lucius")
-        $(whamletFile "list.hamlet") 
+                 combos <- runDB $ (rawSql "SELECT ??, ??, ?? \
+                                   \FROM combo INNER JOIN servico \
+                                   \ON combo.serv_id=servico.id INNER JOIN fornecedor \
+                                   \ON combo.forn_id=fornecedor.id" [])::Handler [(Entity Combo, Entity Servico, Entity Fornecedor)]
+                 defaultLayout $ do 
+                      toWidget  $(luciusFile "home.lucius")
+                      $(whamletFile "list.hamlet") 
+
+--getListUserR :: Handler Html
+--getListUserR = do
+ --   listaU <- runDB $ selectList [] [Asc UsuarioNome]
+--    defaultLayout $ do 
+ --       toWidget  $(luciusFile "home.lucius")
+--        $(whamletFile "list.hamlet") 
         
 getByeR :: Handler Html
 getByeR = do
     deleteSession "_ID"
-    defaultLayout [whamlet| BYE! |]
+    defaultLayout [whamlet| Saindo... |]
 
 getAdminR :: Handler Html
-getAdminR = defaultLayout [whamlet| <h1> Bem-vindo ADMIN!! |]
+getAdminR = do
+        defaultLayout $ widgetAdm 
+
 
 connStr = "dbname=d4nnmskudjtloa host=ec2-107-21-223-110.compute-1.amazonaws.com user=npraiqxlmbrgar password= Y-Rx12gmawtZuCsFLfqOYs0UNr port=5432"
 

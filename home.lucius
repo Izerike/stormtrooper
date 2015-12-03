@@ -429,7 +429,7 @@ ul.contact li a.icon-rss:before
 		color: rgba(255,255,255,1);
 		height: 200px;
   		width: 200px;
-  		background-image: url(@{ StaticR luis_PNG}) center center no-repeat;
+  		background: url(@{StaticR askell_PNG}) center center no-repeat;
   		background-size: 200px 200px;
 	}
 	
